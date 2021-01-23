@@ -1,9 +1,11 @@
 import setuptools
 
+from io import open
 
 
-with open("README.md", "r") as fh:
-    long_description = fh.read()
+def read(filename):
+    with open(filename, encoding='utf-8') as file:
+        return file.read()
 
 setuptools.setup(
     name="pyaiodl",
@@ -11,7 +13,7 @@ setuptools.setup(
     author="Aryan Vikash",
     author_email="followvikash8@gmail.com",
     description="A Python Asynchronous Downloader - pyaiodl",
-    long_description=long_description,
+    long_description=read("README.md"),
     long_description_content_type="text/markdown",
     url="https://github.com/aryanvikash/pyaiodl",
     packages=setuptools.find_packages(),
